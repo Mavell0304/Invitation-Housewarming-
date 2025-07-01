@@ -19,17 +19,15 @@
     }
 
     .card {
-      background: #fffaf4;
-      border: 1px solid #d0c7bc;
+      background: #fffaf6;
+      border: 1px solid #ead7cc;
       border-radius: 12px;
-      padding: 30px 25px;
+      padding: 30px 20px;
+      max-width: 600px;
       width: 90%;
-      max-width: 500px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
       text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeIn 1.5s ease-out forwards;
+      animation: fadeIn 1.2s ease-out forwards;
     }
 
     h1 {
@@ -40,20 +38,20 @@
 
     p {
       font-size: 1.1em;
-      margin: 10px 0;
+      margin: 14px 0;
     }
 
     .button {
       position: relative;
       display: inline-block;
-      background: #b58c74;
+      background: #b58674;
       color: white;
       padding: 16px 28px;
       font-size: 1.2em;
       border-radius: 8px;
-      text-decoration: none;
       font-weight: bold;
       margin-top: 25px;
+      text-decoration: none;
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: pulse 3s ease-in-out infinite;
@@ -77,8 +75,18 @@
     }
 
     .button.confirmar {
-      background-color: #4caf50;
-      animation: bounce 2s infinite;
+      background-color: #5cbf74;
+      animation: bounce 1.5s infinite;
+      margin-top: 18px;
+    }
+
+    .thanks {
+      margin-top: 40px;
+      font-size: 1.2em;
+      color: #5a4a3f;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+      animation-delay: 1s;
     }
 
     @keyframes shimmer {
@@ -93,45 +101,37 @@
 
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-6px); }
     }
 
     @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .thanks {
-      margin-top: 40px;
-      font-size: 1.2em;
-      color: #5a4a3f;
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards;
-      animation-delay: 2s;
+      to { opacity: 1; }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 1.4em; }
-      p, .button { font-size: 1em; padding: 12px 20px; }
+      h1 { font-size: 1.5em; }
+      p { font-size: 1em; }
+      .button { font-size: 1em; padding: 12px 20px; }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Housewarming Party de Mavell</h1>
+    <h1>🎉 Housewarming Party de Mavell</h1>
     <p><em>Un nuevo comienzo en mi hogar</em></p>
     <p>📅 <strong>Domingo 20 de julio • 12 p.m. – 7 p.m.</strong></p>
     <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
     <p>Mi hogar, mi nuevo comienzo</p>
     <p>Habrá comida deliciosa y buena música 🎶</p>
 
-    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CERHOI72OMC7?ref_=cm_sw_r_apann_wpr-subnav">
+    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CEROI7ZOMC7C/ref=_cm_sw_r_apann_wpr_subnav">
       Ver Lista de Regalos en Amazon 🎁
     </a>
 
     <br /><br />
 
-    <a class="button confirmar" href="https://wa.me/13215551234?text=Hola%20Confirmo%20mi%20asistencia%20a%20la%20housewarming%20de%20Mavell%20🎉">
-      Confirmar asistencia ✉️
+    <a class="button confirmar" href="https://wa.me/13215551234?text=¡Hola! Confirmo mi asistencia a la housewarming de Mavell 🎉">
+      Confirmar asistencia ✅
     </a>
 
     <p class="thanks">Gracias por visitar 🎉</p>
