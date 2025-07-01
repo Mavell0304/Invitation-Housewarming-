@@ -8,9 +8,9 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      background-color: #f7f2ec;
-      color: #5a4a3f;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f3e9db, #e7d8c4);
+      color: #5a4433;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -19,40 +19,40 @@
     }
 
     .card {
-      background: #fffaf6;
-      border: 1px solid #ead7cc;
-      border-radius: 12px;
+      background: #fff7ef;
+      border: 1px solid #e0c8b0;
+      border-radius: 15px;
       padding: 30px 20px;
       max-width: 600px;
       width: 90%;
-      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
-      animation: fadeIn 1.2s ease-out forwards;
-      z-index: 10;
+      animation: fadeIn 1.5s ease-out forwards;
       position: relative;
+      z-index: 10;
     }
 
     h1 {
-      font-size: 1.8em;
+      font-size: 2em;
       margin-top: 0;
-      color: #5a4a3f;
+      color: #6e4f3a;
     }
 
     p {
       font-size: 1.1em;
-      margin: 14px 0;
+      margin: 12px 0;
     }
 
     .button {
       position: relative;
       display: inline-block;
-      background: #b58674;
+      background: #b38b6d;
       color: white;
       padding: 16px 28px;
-      font-size: 1.2em;
+      font-size: 1.1em;
       border-radius: 8px;
       font-weight: bold;
-      margin-top: 25px;
+      margin-top: 20px;
       text-decoration: none;
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -66,26 +66,26 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+      background: linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
       transform: rotate(25deg);
       animation: shimmer 2.5s infinite;
     }
 
     .button:hover {
       transform: scale(1.05);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
 
     .button.confirmar {
       background-color: #5cbf74;
       animation: bounce 1.5s infinite;
-      margin-top: 18px;
+      margin-top: 15px;
     }
 
     .thanks {
-      margin-top: 40px;
+      margin-top: 35px;
       font-size: 1.2em;
-      color: #5a4a3f;
+      color: #5a4433;
       opacity: 0;
       animation: fadeIn 2s ease-in-out forwards;
       animation-delay: 1s;
@@ -115,7 +115,7 @@
       width: 10px;
       height: 10px;
       background-color: gold;
-      opacity: 0.8;
+      opacity: 0.7;
       top: -10px;
       animation: fall linear infinite;
       border-radius: 50%;
@@ -136,8 +136,9 @@
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/08/30/audio_4fcf86ee4c.mp3" type="audio/mpeg">
+  <!-- Música de fondo que funciona en móviles (requiere interacción para iniciar en algunos navegadores) -->
+  <audio autoplay loop controls style="display:none;">
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/30/audio_cb23c9a6a9.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML.
   </audio>
 
@@ -162,17 +163,19 @@
     <p class="thanks">Gracias por visitar 🎉</p>
   </div>
 
-  <!-- Confeti dorado -->
+  <!-- Confeti dorado animado -->
   <script>
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 60; i++) {
       const confetti = document.createElement('div');
       confetti.classList.add('confetti');
       confetti.style.left = `${Math.random() * 100}vw`;
-      confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      confetti.style.animationDuration = `${Math.random() * 4 + 3}s`;
       confetti.style.width = `${Math.random() * 8 + 4}px`;
       confetti.style.height = confetti.style.width;
+      confetti.style.opacity = Math.random() * 0.5 + 0.4;
       document.body.appendChild(confetti);
     }
   </script>
 </body>
 </html>
+      
