@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+   <!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8" />
   <title>Housewarming Party de Mavell</title>
@@ -9,173 +8,83 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #f3e9db, #e7d8c4);
+      background: linear-gradient(to bottom right, #d8c3a5, #eae0d5, #bfa284);
       color: #5a4433;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       overflow: hidden;
-    }
+    }.card {
+  background: #fff7ef;
+  border: 1px solid #d6bfa3;
+  border-radius: 15px;
+  padding: 30px 20px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 1.5s ease-out forwards;
+  position: relative;
+  z-index: 10;
+}
 
-    .card {
-      background: #fff7ef;
-      border: 1px solid #e0c8b0;
-      border-radius: 15px;
-      padding: 30px 20px;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      animation: fadeIn 1.5s ease-out forwards;
-      position: relative;
-      z-index: 10;
-    }
+h1 {
+  font-size: 2em;
+  margin-top: 0;
+  color: #6e4f3a;
+}
 
-    h1 {
-      font-size: 2em;
-      margin-top: 0;
-      color: #6e4f3a;
-    }
+p {
+  font-size: 1.1em;
+  margin: 12px 0;
+}
 
-    p {
-      font-size: 1.1em;
-      margin: 12px 0;
-    }
+.button {
+  position: relative;
+  display: inline-block;
+  background: #a98262;
+  color: white;
+  padding: 16px 28px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 3s ease-in-out infinite;
+}
 
-    .button {
-      position: relative;
-      display: inline-block;
-      background: #b38b6d;
-      color: white;
-      padding: 16px 28px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      font-weight: bold;
-      margin-top: 20px;
-      text-decoration: none;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: pulse 3s ease-in-out infinite;
-    }
+.button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+  transform: rotate(25deg);
+  animation: shimmer 2.5s infinite;
+}
 
-    .button::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
-      transform: rotate(25deg);
-      animation: shimmer 2.5s infinite;
-    }
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
 
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    }
+.button.confirmar {
+  background-color: #6c9a8b;
+  animation: bounce 1.5s infinite;
+  margin-top: 15px;
+}
 
-    .button.confirmar {
-      background-color: #5cbf74;
-      animation: bounce 1.5s infinite;
-      margin-top: 15px;
-    }
+.thanks {
+  margin-top: 35px;
+  font-size: 1.2em;
+  color: #5a4433;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
 
-    .thanks {
-      margin-top: 35px;
-      font-size: 1.2em;
-      color: #5a4433;
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards;
-      animation-delay: 1s;
-    }
-
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) rotate(25deg); }
-      100% { transform: translateX(100%) rotate(25deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: gold;
-      opacity: 0.7;
-      top: -10px;
-      animation: fall linear infinite;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(360deg);
-      }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.5em; }
-      p { font-size: 1em; }
-      .button { font-size: 1em; padding: 12px 20px; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Música de fondo que funciona en móviles (requiere interacción para iniciar en algunos navegadores) -->
-  <audio autoplay loop controls style="display:none;">
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/30/audio_cb23c9a6a9.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML.
-  </audio>
-
-  <div class="card">
-    <h1>🎉 Housewarming Party de Mavell</h1>
-    <p><em>Un nuevo comienzo en mi hogar</em></p>
-    <p>📅 <strong>Domingo 20 de julio • 12 p.m. – 7 p.m.</strong></p>
-    <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
-    <p>Mi hogar, mi nuevo comienzo</p>
-    <p>Habrá comida deliciosa y buena música 🎶</p>
-
-    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CEROI7ZOMC7C/ref=_cm_sw_r_apann_wpr_subnav">
-      Ver Lista de Regalos en Amazon 🎁
-    </a>
-
-    <br /><br />
-
-    <a class="button confirmar" href="https://wa.me/13215551234?text=¡Hola! Confirmo mi asistencia a la housewarming de Mavell 🎉">
-      Confirmar asistencia ✅
-    </a>
-
-    <p class="thanks">Gracias por visitar 🎉</p>
-  </div>
-
-  <!-- Confeti dorado animado -->
-  <script>
-    for (let i = 0; i < 60; i++) {
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = `${Math.random() * 100}vw`;
-      confetti.style.animationDuration = `${Math.random() * 4 + 3}s`;
-      confetti.style.width = `${Math.random() * 8 + 4}px`;
-      confetti.style.height = confetti.style.width;
-      confetti.style.opacity = Math.random() * 0.5 + 0.4;
-      document.body.appendChild(confetti);
-    }
-  </script>
-</body>
-</html>
-      
