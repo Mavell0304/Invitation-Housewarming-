@@ -1,107 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Housewarming Party de Mavell</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #f7f2ec;
-      color: #5a4a3f;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+.button {
+  position: relative;
+  display: inline-block;
+  background: #a58c74;
+  color: white;
+  padding: 16px 28px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 25px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .card {
-      background: #fffaf6;
-      border: 1px solid #e0d7cc;
-      border-radius: 16px;
-      padding: 40px 30px;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeSlideIn 1s ease-out forwards;
-    }
+.button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  transform: rotate(25deg);
+  animation: shimmer 2.5s infinite;
+}
 
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
 
-    h1 {
-      font-size: 2em;
-      margin-top: 0;
-      color: #6b5847;
-    }
-
-    p {
-      font-size: 1.25em;
-      margin: 14px 0;
-    }
-
-    a.button {
-      display: inline-block;
-      background: #a58c74;
-      color: white;
-      padding: 16px 28px;
-      font-size: 1.2em;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 25px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    a.button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    }
-
-    .thanks {
-      margin-top: 40px;
-      font-size: 1.3em;
-      color: #6b5847;
-      opacity: 0;
-      animation: fadeIn 2s ease 2s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.7em; }
-      p { font-size: 1.15em; }
-      a.button { font-size: 1.1em; padding: 14px 24px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>Housewarming Party de Mavell</h1>
-    <p><em>Un nuevo comienzo en mi hogar</em></p>
-    <p><strong>🗓️ Domingo 20 de julio • 12 p.m. – 7 p.m.</strong></p>
-    <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
-    <p>Mi hogar, mi nuevo comienzo</p>
-    <p>Habrá comida deliciosa y buena música 🎶</p>
-    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C?ref_=cm_sw_r_apann_ggr-subnav-share_B79Q8V195TV9DWHJ5CF0&language=en-US" target="_blank">
-      Ver Lista de Regalos en Amazon 🎁
-    </a>
-    <p style="margin-top:30px;">¡Te espero con mucha ilusión! – Mavell</p>
-    <div class="thanks">Gracias por visitar 🎉</div>
-  </div>
-</body>
-</html>
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0
