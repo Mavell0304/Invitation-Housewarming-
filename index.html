@@ -7,50 +7,49 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #d8c3a5, #eae0d5, #bfa284);
-      color: #5a4433;
+      font-family: sans-serif;
+      background: linear-gradient(to bottom, #d2b48c, #a1866f);
+      color: #5a4a3f;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
     }.card {
-  background: #fff7ef;
-  border: 1px solid #d6bfa3;
-  border-radius: 15px;
-  padding: 30px 20px;
+  background: #f7f0e8;
+  border: 1px solid #d2a679;
+  border-radius: 12px;
+  padding: 40px 30px;
   max-width: 600px;
   width: 90%;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 20px 25px rgba(0, 0, 0, 0.2);
   text-align: center;
   animation: fadeIn 1.5s ease-out forwards;
-  position: relative;
-  z-index: 10;
 }
 
 h1 {
   font-size: 2em;
   margin-top: 0;
-  color: #6e4f3a;
+  color: #5d4037;
 }
 
 p {
-  font-size: 1.1em;
-  margin: 12px 0;
+  font-size: 1.2em;
+  margin: 14px 0;
+  color: #4e342e;
 }
 
 .button {
   position: relative;
   display: inline-block;
-  background: #a98262;
+  background: #b07c4a;
   color: white;
   padding: 16px 28px;
-  font-size: 1.1em;
+  font-size: 1.2em;
   border-radius: 8px;
   font-weight: bold;
-  margin-top: 20px;
   text-decoration: none;
+  margin-top: 25px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: pulse 3s ease-in-out infinite;
@@ -63,28 +62,82 @@ p {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+  background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
   transform: rotate(25deg);
   animation: shimmer 2.5s infinite;
 }
 
 .button:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
 }
 
-.button.confirmar {
-  background-color: #6c9a8b;
-  animation: bounce 1.5s infinite;
-  margin-top: 15px;
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .thanks {
-  margin-top: 35px;
-  font-size: 1.2em;
-  color: #5a4433;
-  opacity: 0;
+  font-size: 1.4em;
+  margin-top: 40px;
+  color: #8d6e63;
   animation: fadeIn 2s ease-in-out forwards;
-  animation-delay: 1s;
 }
 
+@media (max-width: 600px) {
+  h1 { font-size: 1.6em; }
+  p, .button { font-size: 1em; padding: 12px 20px; }
+}
+
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+  </style>
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/15/audio_ba99c14b96.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+  <div class="card">
+    <h1>🎉 Housewarming Party de Mavell</h1>
+    <p><em>Un nuevo comienzo en mi hogar</em></p>
+    <p>📅 <strong>Domingo 20 de julio • 12 p.m. – 7 p.m.</strong></p>
+    <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
+    <p>💖 Mi hogar, mi nuevo comienzo</p>
+    <p>🍽️ Habrá comida deliciosa y buena música 🎶</p>
+    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CEROI072OMC7/ref=cm_sw_r_apann_upr_subnav">Ver Lista de Regalos en Amazon 🎁</a>
+    <br /><br />
+    <a class="button" href="https://wa.me/13215551234?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20housewarming%20de%20Mavell">Confirmar Asistencia ✅</a>
+    <p class="thanks">Gracias por visitar 🎉</p>
+  </div>  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>  <script>
+    const canvas = document.getElementById('confetti');
+    const confetti = confetti.create(canvas, { resize: true });
+    setInterval(() => {
+      confetti({
+        particleCount: 3,
+        spread: 90,
+        origin: { y: 0.6 },
+        colors: ['#FFD700', '#FFE4B5', '#D2B48C']
+      });
+    }, 300);
+  </script></body>
+</html>
