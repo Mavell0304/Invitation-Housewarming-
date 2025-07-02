@@ -1,158 +1,74 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nuevo Comienzo de Mavell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Housewarming de Mabel</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #a1866f, #d2b48c);
-      overflow: hidden;
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card {
-      background: #fdf6ec;
-      border-radius: 20px;
-      padding: 30px 25px;
-      max-width: 360px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #f5f0e6, #e8d7c1);
+      color: #4e3b1f;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      z-index: 2;
+      padding: 2rem;
     }
-
     h1 {
-      font-size: 1.8em;
-      color: #8b5c2d;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      color: #b9935a;
+      margin-bottom: 0.5rem;
     }
-
-    p {
-      font-size: 1em;
-      color: #5a4635;
-      margin: 10px 0;
+    h2 {
+      font-size: 1.5rem;
+      color: #7e5c3e;
+      margin-top: 0;
     }
-
-    .info {
-      font-weight: bold;
-      color: #443322;
+    .details {
+      background-color: #fffaf3;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 2rem;
+      max-width: 600px;
+      margin: 2rem auto;
     }
-
-    .button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      font-size: 1em;
-      color: white;
-      background: #b07c4a;
-      border-radius: 10px;
+    .details p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    .wishlist {
+      margin-top: 2rem;
+    }
+    .wishlist a {
       text-decoration: none;
-      transition: background 0.3s ease;
+      background-color: #b9935a;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      display: inline-block;
     }
-
-    .button:hover {
-      background: #a86a35;
-    }
-
-    .thanks {
-      margin-top: 15px;
-      font-size: 0.9em;
-      color: #6a4e3a;
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 0;
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #856c4d;
     }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
+  <h1>Housewarming de Mabel</h1>
+  <h2>Nuevo Comienzo</h2>
+  <p><em>“Acompáñenme a celebrar este nuevo capítulo con buena música, comida y alegría.”</em></p>  <div class="details">
+    <p><strong>📍 Dirección:</strong> 1231 Sandestin Way, Orlando FL 32824</p>
+    <p><strong>📅 Fecha:</strong> 20 de julio</p>
+    <p><strong>🕛 Hora:</strong> 12 p.m. a 7 p.m.</p>
+    <p><strong>📱 Confirmar asistencia:</strong> 407-289-7027</p>
+  </div>  <div class="wishlist">
+    <a href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C?ref_=cm_sw_r_apann_ggr-subnav-share_DWP27PP5Z63KJA704TN9&language=en-US" target="_blank">Ver lista de regalos en Amazon 🎁</a>
+  </div>  <div class="footer">
+    <p>Con cariño,</p>
+    <p>Mabel ✨</p>
+  </div>  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
   </audio>
-
-  <canvas id="confetti"></canvas>
-
-  <div class="container">
-    <div class="card">
-      <h1>🎉 Nuevo Comienzo de Mavell 🎉</h1>
-      <p>Te invito con mucho cariño a conocer lo que será <strong>mi nuevo hogar</strong>.</p>
-      <p>✨ Acompáñame a celebrar esta nueva etapa de mi vida ✨</p>
-      <p class="info">📅 Sábado 20 de julio | 🕛 12 p.m. - 7 p.m.</p>
-      <p class="info">📍 1231 Sandestin Way, Orlando, FL 32824</p>
-
-      <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C" target="_blank">🎁 Ver lista de regalos</a><br>
-      <a class="button" href="https://wa.me/14072897027?text=Hola%20Mavell%2C%20confirmo%20mi%20asistencia%20a%20tu%20housewarming" target="_blank">✅ Confirmar asistencia</a>
-
-      <p class="thanks">🙏 Gracias por visitar</p>
-    </div>
-  </div>
-
-  <script>
-    // Confetti dorado animado
-    const canvas = document.getElementById('confetti');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    for (let i = 0; i < 200; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 6 + 2,
-        d: Math.random() * 2 + 1,
-        color: `hsl(${Math.random() * 50 + 40}, 100%, 60%)`,
-        tilt: Math.random() * 10 - 10,
-        tiltAngle: 0,
-        tiltAngleIncrement: Math.random() * 0.07 + 0.05
-      });
-    }
-
-    function drawConfetti() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.lineWidth = p.r;
-        ctx.strokeStyle = p.color;
-        ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
-        ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r);
-        ctx.stroke();
-      });
-
-      update();
-    }
-
-    function update() {
-      particles.forEach(p => {
-        p.tiltAngle += p.tiltAngleIncrement;
-        p.y += p.d;
-        p.x += Math.sin(p.tiltAngle);
-        p.tilt = Math.sin(p.tiltAngle) * 15;
-
-        if (p.y > canvas.height) {
-          p.y = 0;
-          p.x = Math.random() * canvas.width;
-        }
-      });
-    }
-
-    setInterval(drawConfetti, 30);
-  </script>
 </body>
 </html>
