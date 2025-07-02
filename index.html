@@ -1,117 +1,74 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Housewarming Party de Mavell</title>
+  <title>Housewarming de Mavell</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background: linear-gradient(to bottom, #c49b6d, #a18666);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #c8a97e, #9e7b56);
+      color: #3e2f1c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       overflow: hidden;
-    }
+    }.card {
+  background-color: #fdf8f3;
+  border-radius: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 24px 18px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
 
-    .confetti {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
+h1 {
+  font-size: 1.8em;
+  color: #8b5e3c;
+  margin-bottom: 0.5em;
+}
 
-    .card {
-      background: #fff9ea;
-      border-radius: 16px;
-      padding: 50px 35px;
-      max-width: 700px;
-      margin: 5vh auto;
-      text-align: center;
-      box-shadow: 8px 20px 30px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 1;
-    }
+p {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
 
-    h1 {
-      font-size: 2.5em;
-      color: #8b4c00;
-    }
+.highlight {
+  font-weight: bold;
+  color: #a0622c;
+}
 
-    p {
-      font-size: 1.4em;
-      color: #4a3a2a;
-      margin: 10px 0;
-    }
+.button {
+  display: block;
+  margin: 10px auto;
+  padding: 12px;
+  background-color: #b1763d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1em;
+  text-decoration: none;
+  width: 90%;
+}
 
-    .button {
-      background: #b0702c;
-      color: white;
-      font-size: 1.2em;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 12px;
-      margin: 15px 10px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
-    }
+.button:hover {
+  background-color: #8b5e3c;
+}
 
-    .button:hover {
-      background: #8b4c00;
-    }
+.footer {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #6f4f35;
+}
 
-    audio {
-      display: none;
-    }
   </style>
 </head>
 <body>
-  <canvas class="confetti" id="confetti-canvas"></canvas>
-
   <div class="card">
-    <h1>🎉 Housewarming Party de Mavell 🎉</h1>
-    <p>¡Estás cordialmente invitado/a a celebrar nuestro nuevo hogar!</p>
-    <p>📅 <strong>Sábado 20 de julio</strong> | 🕛 12 p.m. a 7 p.m.</p>
-    <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
-    <p>✨ Esperamos compartir esta alegría contigo.</p>
-    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C" target="_blank">🎁 Ver lista de regalos</a>
-    <a class="button" href="https://wa.me/14072897027?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20tu%20Housewarming%20Party%20🎉" target="_blank">✅ Confirmar asistencia</a>
-    <p>🙏 Gracias por visitar</p>
-  </div>
-
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
-  </audio>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    const duration = 15 * 1000;
-    const end = Date.now() + duration;
-
-    (function frame() {
-      confetti({
-        particleCount: 3,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-        colors: ['#ffc107', '#ff9800', '#ff5722']
-      });
-      confetti({
-        particleCount: 3,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-        colors: ['#ffc107', '#ff9800', '#ff5722']
-      });
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    })();
-  </script>
-</body>
-</html>
+    <h1>🏡 Housewarming Party de Mavell</h1>
+    <p>
+      Ven para que conozcas lo que será <span class="highlight">mi nuevo hogar</span>.<br>
+      Acomp
