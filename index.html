@@ -1,60 +1,117 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Housewarming de Mabel</title>
+  <title>Housewarming Party de Mavell</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #f5f0e6, #e8d7c1);
-      color: #4e3b1f;
+      padding: 0;
+      font-family: sans-serif;
+      background: linear-gradient(to bottom, #c49b6d, #a18666);
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      background: #fff9ea;
+      border-radius: 16px;
+      padding: 50px 35px;
+      max-width: 700px;
+      margin: 5vh auto;
       text-align: center;
-      padding: 2rem;
+      box-shadow: 8px 20px 30px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
     }
+
     h1 {
-      font-size: 2.5rem;
-      color: #b9935a;
-      margin-bottom: 0.5rem;
+      font-size: 2.5em;
+      color: #8b4c00;
     }
-    h2 {
-      font-size: 1.5rem;
-      color: #7e5c3e;
-      margin-top: 0;
+
+    p {
+      font-size: 1.4em;
+      color: #4a3a2a;
+      margin: 10px 0;
     }
-    .details {
-      background-color: #fffaf3;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      padding: 2rem;
-      max-width: 600px;
-      margin: 2rem auto;
-    }
-    .details p {
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
-    }
-    .wishlist {
-      margin-top: 2rem;
-    }
-    .wishlist a {
-      text-decoration: none;
-      background-color: #b9935a;
+
+    .button {
+      background: #b0702c;
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      font-size: 1.1rem;
+      font-size: 1.2em;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 12px;
+      margin: 15px 10px;
+      cursor: pointer;
+      text-decoration: none;
       display: inline-block;
+      box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
     }
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #856c4d;
+
+    .button:hover {
+      background: #8b4c00;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Housewarming de Mabel</h1>
-  <h2>Nuevo Comienzo</h2>
-  <p><em>“Acompáñenme a celebrar este nuevo capítulo con buena música, comida y alegría.”</em></p>  <div class="details">
-    <p><strong>📍
+  <canvas class="confetti" id="confetti-canvas"></canvas>
+
+  <div class="card">
+    <h1>🎉 Housewarming Party de Mavell 🎉</h1>
+    <p>¡Estás cordialmente invitado/a a celebrar nuestro nuevo hogar!</p>
+    <p>📅 <strong>Sábado 20 de julio</strong> | 🕛 12 p.m. a 7 p.m.</p>
+    <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
+    <p>✨ Esperamos compartir esta alegría contigo.</p>
+    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C" target="_blank">🎁 Ver lista de regalos</a>
+    <a class="button" href="https://wa.me/14072897027?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20tu%20Housewarming%20Party%20🎉" target="_blank">✅ Confirmar asistencia</a>
+    <p>🙏 Gracias por visitar</p>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const duration = 15 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#ffc107', '#ff9800', '#ff5722']
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ['#ffc107', '#ff9800', '#ff5722']
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  </script>
+</body>
+</html>
