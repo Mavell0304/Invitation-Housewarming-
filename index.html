@@ -2,14 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Housewarming Party de Mavell</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: linear-gradient(to bottom, #b18e65, #a18667);
+      background: linear-gradient(to bottom, #d2b48c, #a1866f);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,89 +17,99 @@
     }
 
     .card {
-      background: #fff6ea;
-      border: 1px solid #d2a679;
+      background: #fff7e5;
       border-radius: 12px;
       padding: 40px 30px;
-      max-width: 600px;
-      width: 95%;
-      box-shadow: 8px 20px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      max-width: 500px;
+      width: 90%;
       text-align: center;
-      animation: fadeIn 1.5s ease-out forwards;
+      animation: fadein 1.5s ease-out forwards;
     }
 
     h1 {
       font-size: 2em;
-      margin-top: 0;
-      color: #8d4c37;
+      color: #8B4513;
     }
 
     p {
       font-size: 1.2em;
-      color: #4a2e2e;
+      color: #4B3621;
     }
 
     .button {
-      position: relative;
-      display: inline-block;
-      background: #b07c4a;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #b07c4a;
       color: white;
-      padding: 12px 25px;
-      font-size: 1.2em;
-      border-radius: 8px;
-      font-weight: bold;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
       text-decoration: none;
-      margin-top: 25px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: pulse 3s ease-in-out infinite;
+      display: inline-block;
+      transition: 0.3s ease;
     }
 
     .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+      background-color: #8b5e3c;
     }
 
-    .confetti {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://i.imgur.com/E6D4Xzk.gif');
-      background-size: cover;
-      z-index: -1;
-      opacity: 0.5;
-    }
-
-    audio {
-      display: none;
-    }
-
-    @keyframes fadeIn {
+    @keyframes fadein {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
     }
   </style>
 </head>
 <body>
-  <div class="confetti"></div>
   <div class="card">
     <h1>🎉 Housewarming Party de Mavell 🎉</h1>
     <p>¡Estás cordialmente invitado/a a celebrar nuestro nuevo hogar!</p>
-    <p>🗓️ Domingo 14 de julio | 🕒 12 p.m.<br>📍 1234 Palm St, Orlando, FL 32801</p>
+    <p>📅 Sábado 20 de julio | 🕛 12 p.m. a 7 p.m.</p>
+    <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
     <p>✨ Esperamos compartir esta alegría contigo.</p>
-    <a class="button" href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C" target="_blank">Ver lista de regalos 🎁</a><br><br>
-    <a class="button" href="https://wa.me/13215551234?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20housewarming%20de%20Mavell%20🎉" target="_blank">Confirmar asistencia ✅</a>
-    <p style="margin-top: 30px; font-size: 0.9em;">🙏 Gracias por visitar</p>
+    <a href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C?ref_=cm_sw_r_apann_ggr-subnav-share_XVXPMTHZTZBXAX1N0SP7&language=en-US" class="button">🎁 Ver lista de regalos</a><br><br>
+    <a href="https://wa.me/14072897027?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20housewarming%20de%20Mavell%20🎉" class="button">✅ Confirmar asistencia</a>
+    <p style="margin-top:20px;">🙏 Gracias por visitar</p>
   </div>
+
   <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg" />
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_56f3acdfc4.mp3?filename=gentle-acoustic-ambient-11157.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
   </audio>
+
+  <canvas id="confetti"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    const confetti = window.confetti;
+    const duration = 15 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  </script>
 </body>
 </html>
