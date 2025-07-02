@@ -1,115 +1,79 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8" />
   <title>Housewarming Party de Mavell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: linear-gradient(to bottom, #d2b48c, #a1866f);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+      background: linear-gradient(to bottom, #d2ab64, #a1866f);
+      overflow: hidden;
+    }.confetti {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
 
-    .card {
-      background: #fff7e5;
-      border-radius: 12px;
-      padding: 40px 30px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      max-width: 500px;
-      width: 90%;
-      text-align: center;
-      animation: fadein 1.5s ease-out forwards;
-    }
+.card {
+  background: rgba(255, 245, 224, 0.95);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  box-shadow: 8px 20px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
 
-    h1 {
-      font-size: 2em;
-      color: #8B4513;
-    }
+h1 {
+  font-size: 2.5em;
+  margin-top: 0;
+  color: #914d26;
+}
 
-    p {
-      font-size: 1.2em;
-      color: #4B3621;
-    }
+p {
+  font-size: 1.4em;
+  color: #5a4030;
+}
 
-    .button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #b07c4a;
-      color: white;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s ease;
-    }
+.button {
+  display: inline-block;
+  background: #b0704c;
+  color: white;
+  padding: 12px 22px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  margin: 15px 10px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
 
-    .button:hover {
-      background-color: #8b5e3c;
-    }
+.button:hover {
+  transform: scale(1.05);
+}
 
-    @keyframes fadein {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+.footer {
+  margin-top: 20px;
+  font-size: 1em;
+  color: #4a2e1e;
+}
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
-    }
   </style>
 </head>
 <body>
-  <div class="card">
+  <canvas class="confetti"></canvas>  <div class="card">
     <h1>🎉 Housewarming Party de Mavell 🎉</h1>
-    <p>¡Estás cordialmente invitado/a a celebrar nuestro nuevo hogar!</p>
-    <p>📅 Sábado 20 de julio | 🕛 12 p.m. a 7 p.m.</p>
-    <p>📍 1231 Sandestin Way, Orlando, FL 32824</p>
+    <p>
+      ¡Estás cordialmente invitado/a a celebrar nuestro nuevo hogar!
+    </p>
+    <p>
+      📅 <strong>Sábado 20 de julio</strong> | ⏰ 12 p.m. a 7 p.m.<br>
+      📍1231 Sandestin Way, Orlando, FL 32824
+    </p>
     <p>✨ Esperamos compartir esta alegría contigo.</p>
-    <a href="https://www.amazon.com/registries/gl/guest-view/3CER802T2CW0C?ref_=cm_sw_r_apann_ggr-subnav-share_XVXPMTHZTZBXAX1N0SP7&language=en-US" class="button">🎁 Ver lista de regalos</a><br><br>
-    <a href="https://wa.me/14072897027?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20housewarming%20de%20Mavell%20🎉" class="button">✅ Confirmar asistencia</a>
-    <p style="margin-top:20px;">🙏 Gracias por visitar</p>
-  </div>
-
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_56f3acdfc4.mp3?filename=gentle-acoustic-ambient-11157.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
-
-  <canvas id="confetti"></canvas>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script>
-    const confetti = window.confetti;
-    const duration = 15 * 1000;
-    const end = Date.now() + duration;
-
-    (function frame() {
-      confetti({
-        particleCount: 3,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 }
-      });
-      confetti({
-        particleCount: 3,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 }
-      });
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    })();
-  </script>
-</body>
-</html>
+    <a class="button" href="https://www.amazon.com
